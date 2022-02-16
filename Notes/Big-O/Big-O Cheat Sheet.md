@@ -1,13 +1,24 @@
+# Big-O Algorithm Notes
+## Simplifying Big O Expressions
+<details><summary>Click to view</summary>
+- Constants don't matter
+- Smaller terms don't matter
+- Big-O Shorthands:
+  - Aruthmetic operations are constant
+</details>
+
+
+
 # Big-O Algorithm Complexity Cheat Sheet
 Shows [Big-O](https://en.wikipedia.org/wiki/Big_O_notation) time and space complexities of common algorithms used in .NET and Computer Science. You can see which collection type or sorting algorithm to use at a glance to write the most efficient code. This is also useful for those studying Computer Science in University or for technical interview tests where Big-O notation questions can be fairly common depending on the type of company you are apply to.
 
 ## View The Cheat Sheet
 
 #### [HTML](https://rawgit.com/rehansaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet/main/Cheat%20Sheet.html)
-#### [PDF](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet/blob/main/Cheat%20Sheet.pdf)
-#### [PNG](https://github.com/RehanSaeed/.NET-Big-O-Algorithm-Complexity-Cheat-Sheet/blob/main/Cheat%20Sheet.png)
+#### [PDF](https://github.com/jackie-ng/JS-Algorithms-and-Data-Structures-Practices/blob/main/Notes/Cheat%20Sheet.pdf)
+#### [PNG](https://github.com/jackie-ng/JS-Algorithms-and-Data-Structures-Practices/blob/main/Notes/Cheat%20Sheet.png)
 
-![Big-O Algorithm Complexity Cheat Sheet](Cheat%20Sheet.pdf)
+![Big-O Algorithm Complexity Cheat Sheet](Cheat%20Sheet.png)
 
 ## Credits
 
