@@ -1,6 +1,6 @@
 # Big-O Algorithm Notes
 ## Simplifying Big O Expressions
-<details><summary> **Calculate runtime efficiently** </summary>
+**<details><summary>Calculate runtime efficiently</summary>**
 
 - Constants don't matter
 - Smaller terms don't matter
@@ -13,7 +13,7 @@
 </details>
 
 ## Space Complexity
-<details><summary>**Details**</summary>
+**<details><summary>Details</summary>**
 
 ### Auxiliary Space Complexity
 Refer to space required by the algo, not including space taken up by the inputs
