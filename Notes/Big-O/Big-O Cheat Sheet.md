@@ -1,9 +1,9 @@
 # Big-O Algorithm Notes
 ## Simplifying Big O Expressions
 <details><summary>Click to view</summary>
-- Constants don't matter
-- Smaller terms don't matter
-- Big-O Shorthands:
+* Constants don't matter
+* Smaller terms don't matter
+* Big-O Shorthands:
    - Arithmetic operations are constant
 </details>
 
