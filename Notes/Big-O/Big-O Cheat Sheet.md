@@ -5,6 +5,7 @@
   - Smaller terms don't matter
   - Big-O Shorthands:
    - Arithmetic operations are constant
+  <a/>
 </details>
 
 
