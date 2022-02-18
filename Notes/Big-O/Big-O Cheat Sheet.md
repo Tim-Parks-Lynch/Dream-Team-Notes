@@ -20,6 +20,13 @@ Refer to space required by the algo, not including space taken up by the inputs
 
 ### Space Complexity
 
+- Most primitives (booleans, numbers, undefined, null) are constant space
+- Strings require O(n) space (where n is the string length)
+- Reference types are generally O(n), where n is the length (for arrays) or the number of keys (for objects)
+
+### Logs and Section
+
+
 
 </details>
 
