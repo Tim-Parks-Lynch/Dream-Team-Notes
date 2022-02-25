@@ -1,5 +1,4 @@
-# A GUIDE TO DREAM TEAM PRACTICES
-
+# A Guide to Dream Team Practices
 1. [Docs][excel]
 2. [System Designs][sys]
 3. [Algorithms][algos]
@@ -12,7 +11,7 @@
 
 | Topics                                             | Details                                                                                                                      |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [General](JS-Masterclass/General/)                 | [Problem Solving Patterns](JS-Masterclass/General/Problem\Solving\Patterns/), [Recursion](JS-Masterclass/General/Recursion/) |
+| [General](JS-Masterclass/General/)                 | [Problem Solving Patterns](JS-Masterclass/General/Problem%20Solving%20Patterns/), [Recursion](JS-Masterclass/General/Recursion/) |
 | [Algorithms](JS-Masterclass/Algorithms/)           | [Searching](JS-Masterclass/Algorithms/Searching), [Sorting](JS-Masterclass/Algorithms/Sorting/)                              |
 | [Data Structures](JS-Masterclass/Data\Structures/) |                                                                                                                              |
 
