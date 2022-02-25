@@ -4,7 +4,7 @@
 
 - A process (a function in our case) that calls itself
 
-<details><summary>1. Use Cases</summary>
+**<details><summary>1. Use Cases</summary>**
 
 - JSON.parse / JSON.stringify
 - document.getElementById and DOM traversal algorithms
@@ -13,13 +13,13 @@
 - It's sometimes a cleaner alternative to iteration
 </details>
 
-<details><summary>2. How recursive functions work</summary>
+**<details><summary>2. How recursive functions work</summary>**
 Invoke the same function with a different input until you reach your base case!
 - Base case: The condition when the recursion ends.
 - Recursive Call
 </details>
 
-3. Call Stack
+**3. Call Stack**
 
 ```js
 function takeShower(){
@@ -44,7 +44,7 @@ function wakeUp() {
 wakeUp()
 ```
 
-4. When things go wrong
+**4. When things go wrong**
 
 - No base case
 - Forgetting to return or returning the wrong thing!
