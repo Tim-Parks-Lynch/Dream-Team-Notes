@@ -4,7 +4,7 @@
 
 - A process (a function in our case) that calls itself
 
-1. <details><summary>Use Cases</summary>
+<details><summary>1. Use Cases</summary>
 
 - JSON.parse / JSON.stringify
 - document.getElementById and DOM traversal algorithms
@@ -13,7 +13,7 @@
 - It's sometimes a cleaner alternative to iteration
 </details>
 
-2. <details><summary>How recursive functions work</summary>
+<details><summary>2. How recursive functions work</summary>
 Invoke the same function with a different input until you reach your base case!
 - Base case: The condition when the recursion ends.
 - Recursive Call
