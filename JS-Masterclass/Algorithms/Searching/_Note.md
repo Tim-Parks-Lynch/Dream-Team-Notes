@@ -148,7 +148,8 @@ function naiveSearch(str1, str2) {
     - Published in 1977
     - This algorithm more intelligently traverses the longer string to reduce the amount of redundant searching
     - Resources:
-        *[9.1 Knuth-Morris-Pratt KMP String Matching Algorithm][KMP-01]*
-        *[KMP Algorithm | Searching for Patterns | GeeksforGeeks][KMP-02]*
+        - *[9.1 Knuth-Morris-Pratt KMP String Matching Algorithm][KMP-01]*
+        - *[KMP Algorithm | Searching for Patterns | GeeksforGeeks][KMP-02]*
+
 [KMP-01]: https://www.youtube.com/watch?v=V5-7GzOfADQ&feature=youtu.be
 [KMP-02]: https://www.youtube.com/watch?v=cH-5KcgUcOE&feature=youtu.be
