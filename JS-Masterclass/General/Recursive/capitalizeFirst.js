@@ -18,7 +18,8 @@ function capitalizeFirst(array) {
   helper(array);
   return tempArr;
 }
-
+// console.log(capitalizeFirst(['car','taco','banana']))
+// capitalizeFirst(['car','taco','banana']);
 // Colt's solution
 function capitalizeFirst(array) {
   if (array.length === 1) {
