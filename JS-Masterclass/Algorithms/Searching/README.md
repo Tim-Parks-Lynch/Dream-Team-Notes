@@ -143,7 +143,8 @@ function naiveSearch(str1, str2) {
 // Learn about KMP search algorithm
 ```
 
-  - KMP Search:
+### KMP Search
+
     - The Knutt-Morris-Pratt algorithm offers an improvement over the naive approach
     - Published in 1977
     - This algorithm more intelligently traverses the longer string to reduce the amount of redundant searching
@@ -153,3 +154,6 @@ function naiveSearch(str1, str2) {
 
 [KMP-01]: https://www.youtube.com/watch?v=V5-7GzOfADQ&feature=youtu.be
 [KMP-02]: https://www.youtube.com/watch?v=cH-5KcgUcOE&feature=youtu.be
+
+![kmp-01](KMP-01.gif)
+![kmp-02](KMP-02.gif)
