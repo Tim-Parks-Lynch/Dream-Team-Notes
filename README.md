@@ -9,11 +9,11 @@
 
 ## [Javascript Algorithms](JS-Masterclass/)
 
-| Topics                                             | Details                                                                                                                      |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [General](JS-Masterclass/General/)                 | [Problem Solving Patterns](JS-Masterclass/General/Problem%20Solving%20Patterns/), [Recursion](JS-Masterclass/General/Recursion/) |
-| [Algorithms](JS-Masterclass/Algorithms/)           | [Searching](JS-Masterclass/Algorithms/Searching), [Sorting](JS-Masterclass/Algorithms/Sorting/)                              |
-| [Data Structures](JS-Masterclass/Data\Structures/) |                                                                                                                              |
+| Topics                                             | Details                                                                                                                          |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [General](JS-Masterclass/General/)                 | [Problem Solving Patterns](JS-Masterclass/General/Problem%20Solving%20Patterns/) </br> [Recursion](JS-Masterclass/General/Recursion/) |
+| [Algorithms](JS-Masterclass/Algorithms/)           | [Searching](JS-Masterclass/Algorithms/Searching) </br> [Sorting](JS-Masterclass/Algorithms/Sorting/)                                  |
+| [Data Structures](JS-Masterclass/Data\Structures/) |                                                                                                                                  |
 
 ## [System Design](System-Design/)
 
