@@ -8,7 +8,7 @@ Sorting is the process of rearranging the items in a collection (e.g. an array) 
 - Sorting movies based on release year
 - Sorting movies based on revenue
 
-<details>
+</details>
 
 #### Why do we need to learn this?
 
