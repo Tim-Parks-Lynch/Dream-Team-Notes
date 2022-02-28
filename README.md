@@ -1,4 +1,4 @@
-# A Guide to Dream Team Practices
+# A Guide to Dream Team Notes
 1. [Docs][excel]
 2. [System Designs][sys]
 3. [Algorithms][algos]
