@@ -24,13 +24,13 @@
 
 ### Table of Content
 
-1. [Node.js Interview Questions](node)
-2. [Javascript Interview Questions](Javascript)
-3. [HTML Interview Questions](HTML)
-4. [CSS Interview Questions](CSS)
-5. [React Interview Questions](React)
-6. [Unit Testing Interview Questions](Unit-Testing)
-7. [DevOps Interview Questions](devops)
+1. [Node.js Interview Questions][node]
+2. [Javascript Interview Questions][Javascript]
+3. [HTML Interview Questions][HTML]
+4. [CSS Interview Questions][CSS]
+5. [React Interview Questions][React]
+6. [Unit Testing Interview Questions][Unit-Testing]
+7. [DevOps Interview Questions][devops]
 
 [node]: https://github.com/learning-zone/nodejs-interview-questions
 [Javascript]: https://github.com/learning-zone/javascript-interview-questions
