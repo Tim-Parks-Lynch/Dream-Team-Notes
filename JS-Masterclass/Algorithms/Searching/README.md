@@ -151,10 +151,10 @@ function naiveSearch(str1, str2) {
 - Resources:
     - *[9.1 Knuth-Morris-Pratt KMP String Matching Algorithm][KMP-01]*
     - *[KMP Algorithm | Searching for Patterns | GeeksforGeeks][KMP-02]*
-
+    - *[AlgoExpert | KMP][algoKMP]*
 [KMP-01]: https://www.youtube.com/watch?v=V5-7GzOfADQ&feature=youtu.be
 [KMP-02]: https://www.youtube.com/watch?v=cH-5KcgUcOE&feature=youtu.be
-
+[algoKMP]: https://www.algoexpert.io/questions/Knuth%E2%80%94Morris%E2%80%94Pratt%20Algorithm
 ![kmp-01](KMP-01.gif)
 ![kmp-02](KMP-02.gif)
 
