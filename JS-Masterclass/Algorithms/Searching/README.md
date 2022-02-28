@@ -8,7 +8,7 @@
 
 ## Linear Search
 
-**1. Some buil-in methods**
+**1. Some built-in methods**
   - indexOf
   - includes
   - find
