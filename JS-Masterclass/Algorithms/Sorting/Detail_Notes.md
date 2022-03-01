@@ -103,7 +103,7 @@ Check the code *[here](Bubble_Sort.js)*
 
 Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
 
-[selection-sort-01](img/selection-sort-01.gif)
+![selection-sort-01](img/selection-sort-01.gif)
 
 #### Selection Sort Implementation
 
@@ -123,7 +123,7 @@ Similar to bubble sort, but instead of first placing large values into sorted po
 
 Builds up the sort by gradually creating a larger left half which is always sorted
 
-[insertion-sort](img/insertion-sort-01.gif)
+![insertion-sort](img/insertion-sort-01.gif)
 
 #### Insertion Sort Implementation
 
@@ -171,7 +171,7 @@ Builds up the sort by gradually creating a larger left half which is always sort
 
 **Merging Arrays: Intro**
 
-[merge-sort](img/merge-sort-01.gif)
+![merge-sort](img/merge-sort-01.gif)
 
 #### Merge Sort Implementation
 #### Merge Sort BIG O
