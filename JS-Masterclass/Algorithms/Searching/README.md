@@ -43,7 +43,7 @@ linearSearch([34, 56, 1, 2], 1)
 
 #### Divide and Conquer
 
-![binary-search-01](binary-search-01.gif)
+![binary-search-01](img/binary-search-01.gif)
 
 #### Example
 **1. Binary Search Pseudocode**
@@ -58,6 +58,8 @@ linearSearch([34, 56, 1, 2], 1)
 - If you never find the value, return -1
 
 **2. Code**
+
+Test your code [here](binarySearch.js)
 ```js
 // Original Solution
 function binarySearch(arr, elem) {
@@ -100,8 +102,8 @@ binarySearch([2, 5, 6, 9, 13, 15, 28, 30], 103);
 - O(log n): Worst and Average Case
 - O(1): Best case
 
-![binary-search-02](binary-search-02.gif)
-![binary-search-03](binary-search-03.gif)
+![binary-search-02](img/binary-search-02.gif)
+![binary-search-03](img/binary-search-03.gif)
 
 
 ## String search
@@ -109,7 +111,7 @@ binarySearch([2, 5, 6, 9, 13, 15, 28, 30], 103);
 - Suppose you want to count the number of times a smaller string appears in a longer string
 - A straightforward approach involves checking pairs of characters individually
 
-![string-search-01](string-search-01.gif)
+![string-search-01](img/string-search-01.gif)
 
 ### Example
 
@@ -152,20 +154,21 @@ function naiveSearch(str1, str2) {
     - *[9.1 Knuth-Morris-Pratt KMP String Matching Algorithm][KMP-01]*
     - *[KMP Algorithm | Searching for Patterns | GeeksforGeeks][KMP-02]*
     - *[AlgoExpert | KMP][algoKMP]*
-    
+
 [KMP-01]: https://www.youtube.com/watch?v=V5-7GzOfADQ&feature=youtu.be
 [KMP-02]: https://www.youtube.com/watch?v=cH-5KcgUcOE&feature=youtu.be
 [algoKMP]: https://www.algoexpert.io/questions/Knuth%E2%80%94Morris%E2%80%94Pratt%20Algorithm
-![kmp-01](KMP-01.gif)
-![kmp-02](KMP-02.gif)
+![kmp-01](img/KMP-01.gif)
+![kmp-02](img/KMP-02.gif)
 
 #### Prefixes and Suffixes
 
 - In order to determine how far we can shift the shorter string, we can pre-compute the length of the longest (proper) suffix that matches a (proper) prefix
 - This tabulation should happen before you start looking for the short string in the long string
+- Test the code [here](KMP.js)
 
-![prefix-01](prefix-01.gif)
-![prefix-02](prefix-02.gif)
+![prefix-01](img/prefix-01.gif)
+![prefix-02](img/prefix-02.gif)
 
 #### Building the Table
 
