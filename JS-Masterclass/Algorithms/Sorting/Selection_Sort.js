@@ -41,3 +41,21 @@ function selectionSort(arr){
 
 // console.log(selectionSort([0,2,34,22,10,19,17]));
 
+//Andrea's solution
+
+function selectionSort(array) {
+    for (let i = 0; i < array.length-1; i++) {
+          let minIdx = i
+          for (let j = i + 1; j < array.length; j++) {
+              if (array[minIdx] > array[j]) {
+                  minIdx = j
+              }
+          }
+          if (array[minIdx] < array[i]) {
+              let temp = array[minIdx]
+              array[minIdx] = array[i]
+              array[i] = temp
+          }
+      }
+      return array
+  }

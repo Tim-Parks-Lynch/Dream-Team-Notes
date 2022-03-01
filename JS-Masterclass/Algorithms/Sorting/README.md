@@ -1,146 +1,217 @@
-# Sorting
+# Elementary Sorting Algorithms
+**You can check for the summary notes *[here](SUMMARY.md)***
+Sorting is the process of rearranging the items in a collection (e.g. an array) so that the items are in some kind of order.
 
-**You can check for the detail notes *[here](Detail_Notes.md)***
+**<details><summary>Examples</summary>**
 
--   There ara **many** different algorithms to do this, so it's important to know what works best, and in what situation.
--   [Tool](https://www.toptal.com/developers/sorting-algorithms) to check performance of various sorting techniques.
--   The built-in JavaScript sort() sorts items based on their unicode chars. Hence it is going to treat all array items as a string, by default.
-    -   But, to get it to sort numbers in ascending order, we can specify the callback function as a parameter as follows:
-        <br>
-        Ex 1: [2, 33, 11, 312, 4].sort((a, b) => (a - b))
-        <br>
-        Here if the function returns -ve, then a comes before b, i.e in ascending order.
-        <br>
-        Ex 2: ["data", "structures", "and", "algorithms"].sort((a, b) => (a.length - b.length))
--   Visualgo is the [visualizing tool](https://visualgo.net/en/sorting).
--   The various different sorting algorithms are as follows:
+- Sorting numbers from smallest to largest
+- Sorting names alphabetically
+- Sorting movies based on release year
+- Sorting movies based on revenue
 
-## Quadratic Time Sorting Techniques
+</details>
 
-### 1) Bubble Sort
+**<details><summary>Why do we need to learn this?</summary>**
+- Sorting is an incredibly common task, so it's good to know how it works
+- There are many different ways to sort things, and different techniques have their own advantages and disadvantages
+- Sorting sometimes has quirks, so it's good to understand how to navigate them
+</details>
 
--   Start comparing 2 elements form 1 side of the array, swap if required.
--   At the end of first pass, the largest number has bubbled to the last index of the array, so ignore the last index in the next pass.
--   Complete these passes until the array is sorted.
--   **Time Complexity**: It's O(n<sup>2</sup>)
+#### 1. Built-in JS .sort()
 
-### 2) Selection Sort
+It doesn't always work the way you expect.
 
--   Assumes the first element is the smallest. (Or, largest if sorting in descending order)
--   Finds the minimum value from the array, by comparing each element of the array, then swaps the min element with the first element of the array.
--   In one pass, the 1st element is fixed as the smallest.
--   This way, the sorted array is built up from the beginning of the array, as opposed to the bubble sort technique.
--   **Time Complexity**: Its O(n<sup>2</sup>)
+😃😃😃
+```js
+[ "Steele", "Colt", "Data Structures", "Algorithms" ].sort();
+// [ "Algorithms", "Colt", "Data Structures", "Steele" ]
+```
+😟😟😟
 
-### 3) Insertion Sort
+```js
+[ 6, 4, 15, 10 ].sort();
+// [ 10, 15, 4, 6 ]
+```
 
--   Works by building up the sorted array by **inserting** the array elements into its correct position in the _sorted portion_ of the array.
--   Start by comparing the 2nd element with the 1st element, swap if necessary.
--   Iterate through the rest of the array. Then, for each element, iterate through the _sorted portion_ of the array, and _insert_ this element where it needs to be, by making comparisions.
--   Keep doing this until all the elements have been inserted into their correct positions.
--   **Time Complexity**: O(n<sup>2</sup>)
+#### 2. Telling JavaScript how to sort
 
-### Comparision betweeen Bubble Sort, Selection Sort and Insertion Sort
+- The *[built-in .sort() method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)* accepts an optional comparator function
+- You can use this comparator function to tell JavaScript how you want it to sort
+- The comparator looks at pairs of elements (a and b), determines their sort order based on the return value
+  - If it returns a negative number, a should come before b
+  - If it returns a positive number, a should come after b,
+  - If it returns 0, a and b are the same as far as the sort is concerned
 
--   All of them have quadratic time complexities, but insertion sort does better when the array is _nearly_ sorted., and so does bubble sort. But selection sort is not really useful in most situations.
--   The space complexity of all 3 sorting techniques is O(1).
+```js
+function numberCompare(num1, num2) {
+  return num1 - num2;
+}
 
-## More Efficient Sorting Techniques
+[ 6, 4, 15, 10 ].sort(numberCompare);
+// [ 4, 6, 10, 15 ]
+```
 
-### 1) Merge Sort
+```js
+function compareByLen(str1, str2) {
+  return str1.length - str2.length;
+}
 
--   Works by dividing an array into halves continuosly until we end up with arrays of size 0 or 1. This sorting technique works based on the trick that an array with size 0 or 1 are inherently _sorted_
--   Once we have such arrays, we **merge** them in a way so as to result in a larger but still sorted array.
--   We continue merging these sorted subarrays until the entire array is sorted.
+[ "Steele", "Colt", "Data Structures", "Algorithms" ]
+  .sort(compareByLen);
+// [ "Colt", "Steele", "Algorithms", "Data Structures" ]
+```
 
-#### Merging the smaller sorted sub arrays
+## Bubble Sort
 
--   we start by making an empty array. Compare the first elements if the 2 subarrays, and _push_ the smaller of the two to the first position of the new array. Suppose 1st element of 1st array is smaller, then push that to the new array, and now compare the 2nd element of the first array to the 1st element of the 2nd array, and so on. If we have exhausted the array elements in any of the 2 subarrays, then just push the other subarray to the new array we had created.
+A sorting algorithm where the largest values bubble up to the top!
 
-#### Dividing the array into halves
+![bubble-sort-01](img/bubble-sort-01.gif)
 
--   We use recursion to do this.
--   Use slice to half the array, and do do until the base case of arr.length <= 1
--   Then call merge() on these subarrays, until the original length of the array is reached.
+#### Bubble Sort Implementation
+**1. Swap**
 
-#### Time And Space Complexities
+```js
+// ES5
+function swap(arr, idx1, idx2) {
+  var temp = arr[idx1];
+  arr[idx1] = arr[idx2];
+  arr[idx2] = temp;
+}
 
--   The average, best and worst _time complexity_ of merge sort is **O(n log n)**
-    -   _log n_ as in log<sub>2</sub>n because, we are halving the array until it's of length 1. Which is essentially the power of 2 for which answer is n, which is nothing but log n.
-    -   _n_ because we make rougly n comparisions in the merge() fn.
--   The _space complexity_ is O(n).
+// ES2015
+const swap = (arr, idx1, idx2) => {
+  [arr[idx1],arr[idx2]] = [arr[idx2],arr[idx1]];
+}
+```
+**2. Pseudocode**
+- Start looping from with a variable called i the end of the array towards the beginning
+- Start an inner loop with a variable called j from the beginning until i - 1
+- If arr[j] is greater than arr[j+1], swap those two values!
+- Return the sorted array
 
-##
+**3. Code**
 
-### 2) Quick Sort
+Check the code *[here](Bubble_Sort.js)*
 
--   It works by choosing a **pivot** element, and making sure that all the elements to the left of the pivot element is less than the pivot(not necessarily sorted, they just need to be less than the pivot) and that all the elements to the right of the pivot are all greater than it.
 
-#### placing the pivot element in its correct index
+#### Bubble Sort BIG O
 
--   Choose a pivot, store its index in a variable, let's say pivotIndex. Loop through the array, if the current element is less than than the pivot, then
-    -   increment the pivotIndex, and swap the current element with the element present at the new pivotIndex
--   After one iteration through the array, swap the **pivot** with the element present at the pivotIndex
+| Best | Average          | Worst            |
+| :--- | :--------------- | :--------------- |
+| O(n) | O(n<sup>2</sup>) | O(n<sup>2</sup>) |
 
-#### Recursively placing all pivot elements in its correct position
+## Selection Sort
 
--   Assume **left** indicates the start of a subarray, and **right** indicates the last index of the subarray
--   Do the following only if the **left** pointer is at a lesser index than the **right** pointer
-    -   Start by calling the pivot() fn on the entire array by defaulting the **left** and **right** pointers to the first and last element of the array respectively.
-    -   Then store the return value in the **pivotIndex**
-    -   Use this to recursively call quickSort() with the same array, but from **left** pointer up until **pivotIndex - 1**, for the left part of the array
-    -   For the right part of the array, call quickSort() again, with the same array, but fromm **pointer + 1** to **right**
--   Once the base case becomes invalid, it means that **left === right**, which means that we now have a subarray of length 1, so we **return arr**
+Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
 
-#### Time and Space Complexities
+![selection-sort-01](img/selection-sort-01.gif)
 
--   The best and average _time_ complexity is O(n logn). But the worst case scenario of the time complexity is O(n<sup>2</sup>).
--   The _space_ complexity is always O(log n).
+#### Selection Sort Implementation
 
-##
+- Store the first element as the smallest value you've seen so far.
+- Compare this item to the next item in the array until you find a smaller number.
+- If a smaller number is found, designate that smaller number to be the new "minimum" and continue until the end of the array.
+- If the "minimum" is not the value (index) you initially began with, swap the two values.
+- Repeat this with the next element until the array is sorted.
 
-### 3) Radix Sort
+- Click *[here](Selection_sort.js)* to try the code
 
--   This is **not a comparision sort**! This is an **Integer Sort**, which means that it doesn't compare the values in the array to each other at all, it works because of a property of numbers, which is a mathematical property.
--   It starts by grouping the array elements into **10 buckets** of digits 0 to 9 (for the decimal number system). It groups the array elements by **checking the digit at the units place** first.
--   Once an iteration is complete and all the array elements are grouped into buckets such that all array elements in a bucket are all having the same digit at the units place, we reconstruct the array by placing the elements in the buckets, in the order they were filled.
-    <br>
-    Ex:
+#### Selection Sort BIG O
 
-    | Bucket for digit **3** |
-    | :--------------------: |
-    |          123           |
-    |           3            |
-    |           23           |
-    |         44973          |
+**O(n<sup>2</sup>)**
 
-    Then, the array will be reconstructed as 44973, 23, 3, 123,... followed by elements from the bucket for the digit 4, and so on.
+## Insertion Sort
 
--   Continue till the all the digits in the largest number of the array have been categorized into bucket, according to the digit at the next higher place value, after which the reconstructed array **will be sorted**, even though we never compared any array elements.
+Builds up the sort by gradually creating a larger left half which is always sorted
 
-#### Helper method 1) Getting the digit at a specific place in a number
+![insertion-sort](img/insertion-sort-01.gif)
 
--   Use dividing and modulo operations to do this.
+#### Insertion Sort Implementation
 
-#### Helper method 2) Returning the number of digits in a number
+- Start by picking the second element in the array
+- Now compare the second element with the one before it and swap if necessary.
+- Continue to the next element and if it is in the incorrect order, iterate through the sorted portion (i.e. the left side) to place the element in the correct place.
+- Repeat until the array is sorted.
 
--   Use modulo along with a while loop.
 
-#### Helper method 3} Returning the maximun number of digits in any number of the given array
+#### Insertion Sort BIG O
 
--   Loop through the array, use the helper method 2, and return the maximum no of digits.
+| Best | Average          | Worst            |
+| :--- | :--------------- | :--------------- |
+| O(n) | O(n<sup>2</sup>) | O(n<sup>2</sup>) |
 
-#### Actual sorting pseudocode
+## Comparing Bubble, Selection, and Insertion Sort
 
--   Find out the most digits in any number of the array
--   Iterate from 0 up till the most number of digits
--   For each iteration
-    -   Create buckets for digits 0 - 9 (an array of arrays for all digits)
-    -   place each number in the corresponding bucket based on the _k_ th digit.
--   Replace original array with the reconstructed array of combination of these buckerts, staring from the 0 bucket.
--   Return the list at the end.
+| Algorithm      | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
+| :------------- | :--------------------- | :------------------------ | :---------------------- | :--------------- |
+| Bubble Sort    | O(n)                   | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
+| Insertion Sort | O(n)                   | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
+| Selection Sort | O(n<sup>2</sup>)       | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
 
-#### Time and Space Complexity
+# Intermediate Sorting Algotrithms
 
--   Generally it's accepted that the _best_, _average_, and _worst_ time complexity of radix sort is **O(nk)**, where n is the array size, k is the average number of digits in the array elements.
--   The space complexity of radix sort is O(n + k).
+**<details><summary>Why do we need to learn this?</summary>**
+- The sorting algorithms we've learned so far don't scale well
+- Try out bubble sort on an array of 100000 elements, it will take quite some time!
+- We need to be able to sort large arrays more quickly
+</details>
+
+**<details><summary>FASTER SORTS</summary>**
+- There is a family of sorting algorithms that can improve time complexity from O(n<sup>2</sup>) to O(n log n)
+- There's a tradeoff between efficiency and simplicity
+- The more efficient algorithms are much less simple, and generally take longer to understand
+</details>
+
+## Merge Sort
+
+![merge-sort](img/merge-sort-01.gif)
+
+**Merge Sort: Introduction**
+
+- It's a combination of two things - merging and sorting!
+- Exploits the fact that arrays of 0 or 1 element are always sorted
+- Works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array
+
+**Merging Arrays: Intro**
+
+- In order to implement merge sort, it's useful to first implement a function responsible for merging two sorted arrays
+- Given two arrays which are sorted, this helper function should create a new array which is also sorted, and consists of all of the elements in the two input arrays
+- This function should run in O(n + m) time and O(n + m) space and should not modify the parameters passed to it.
+
+#### Merge Sort Implementation
+
+- Create an empty array, take a look at the smallest values in each input array
+- While there are still values we haven't looked at...
+  - If the value in the first array is smaller than the value in the second array, push the value in the first array into our results and move on to the next value in the first array
+  - If the value in the first array is larger than the value in the second array, push the value in the second array into our results and move on to the next value in the second array
+  - Once we exhaust one array, push in all remaining values from the other array
+
+1. mergeSort Pseudocode
+
+- Break up the array into halves until you have arrays that are empty or have one element
+- Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
+- Once the array has been merged back together, return the merged (and sorted!) array
+
+2. [mergeSort code](Merge_Sort.js)
+
+#### Merge Sort BIG O
+
+| Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
+| :--------------------- | :------------------------ | :---------------------- | :--------------- |
+| O(n log n)             | O(n log n)                | O(n log n)              | O(n)             |
+
+## Quick Sort
+#### Pivot Helper
+
+**1. Introduction**
+**2. Implementation**
+
+#### Quick Sort Implementation
+#### Quick Sort Call Stack
+#### Quick Sort BIG O
+
+## Radix Sort
+#### Radix Sort Helper Methods
+#### Radix Sort Pseudocode
+#### Radix Sort Implementation
+#### Radix Sort BIG O
