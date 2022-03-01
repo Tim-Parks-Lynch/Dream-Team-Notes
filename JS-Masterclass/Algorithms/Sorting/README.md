@@ -1,5 +1,6 @@
 # Elementary Sorting Algorithms
 **You can check for the summary notes *[here](SUMMARY.md)***
+
 Sorting is the process of rearranging the items in a collection (e.g. an array) so that the items are in some kind of order.
 
 **<details><summary>Examples</summary>**
@@ -114,7 +115,7 @@ Similar to bubble sort, but instead of first placing large values into sorted po
 - If the "minimum" is not the value (index) you initially began with, swap the two values.
 - Repeat this with the next element until the array is sorted.
 
-- Click *[here](Selection_sort.js)* to try the code
+- Click *[here](Selection_Sort.js)* to try the code
 
 #### Selection Sort BIG O
 
