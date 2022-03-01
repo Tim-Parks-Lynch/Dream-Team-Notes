@@ -3,14 +3,15 @@
 
 ### Table of Content
 
-1. [Built-in JS .sort()](#1-built-in-js-sort)
-2. [2. Telling JavaScript how to sort](#2-telling-javascript-how-to-sort)
-3. [Bubble Sort](#bubble-sort)
-4. [Selection Sort](#selection-sort)
-5. [Insertion Sort](#insertion-sort)
-6. [Merge Sort](#merge-sort)
-7. [Quick Sort](#quick-sort)
-8. [Radix Sort](#radix-sort)
+1. [Sorting Overview](#sorting)
+2. [Bubble Sort](#bubble-sort)
+3. [Selection Sort](#selection-sort)
+4. [Insertion Sort](#insertion-sort)
+5. [Merge Sort](#merge-sort)
+6. [Quick Sort](#quick-sort)
+7. [Radix Sort](#radix-sort)
+
+### Sorting
 
 Sorting is the process of rearranging the items in a collection (e.g. an array) so that the items are in some kind of order.
 
@@ -28,6 +29,8 @@ Sorting is the process of rearranging the items in a collection (e.g. an array) 
 - There are many different ways to sort things, and different techniques have their own advantages and disadvantages
 - Sorting sometimes has quirks, so it's good to understand how to navigate them
 </details>
+
+[↑ Table of Content ](#table-of-content)
 
 #### 1. Built-in JS .sort()
 
@@ -112,6 +115,8 @@ Check the code *[here](Bubble_Sort.js)*
 | :--- | :--------------- | :--------------- |
 | O(n) | O(n<sup>2</sup>) | O(n<sup>2</sup>) |
 
+[↑ Table of Content ](#table-of-content)
+
 ## Selection Sort
 
 Similar to bubble sort, but instead of first placing large values into sorted position, it places small values into sorted position
@@ -131,6 +136,8 @@ Similar to bubble sort, but instead of first placing large values into sorted po
 #### Selection Sort BIG O
 
 **O(n<sup>2</sup>)**
+
+[↑ Table of Content ](#table-of-content)
 
 ## Insertion Sort
 
@@ -152,6 +159,8 @@ Builds up the sort by gradually creating a larger left half which is always sort
 | :--- | :--------------- | :--------------- |
 | O(n) | O(n<sup>2</sup>) | O(n<sup>2</sup>) |
 
+[↑ Table of Content ](#table-of-content)
+
 ## Comparing Bubble, Selection, and Insertion Sort
 
 | Algorithm      | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
@@ -159,6 +168,8 @@ Builds up the sort by gradually creating a larger left half which is always sort
 | Bubble Sort    | O(n)                   | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
 | Insertion Sort | O(n)                   | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
 | Selection Sort | O(n<sup>2</sup>)       | O(n<sup>2</sup>)          | O(n<sup>2</sup>)        | O(1)             |
+
+[↑ Table of Content ](#table-of-content)
 
 # Intermediate Sorting Algotrithms
 
@@ -211,6 +222,8 @@ Builds up the sort by gradually creating a larger left half which is always sort
 | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
 | :--------------------- | :------------------------ | :---------------------- | :--------------- |
 | O(n log n)             | O(n log n)                | O(n log n)              | O(n)             |
+
+[↑ Table of Content ](#table-of-content)
 
 ## Quick Sort
 
@@ -278,8 +291,12 @@ arr;
 | :--------------------- | :------------------------ | :---------------------- | :--------------- |
 | O(n log n)             | O(n log n)                | O(n<sup>2</sup>)        | O(log n)         |
 
+[↑ Table of Content ](#table-of-content)
+
 ## Radix Sort
 #### Radix Sort Helper Methods
 #### Radix Sort Pseudocode
 #### Radix Sort Implementation
 #### Radix Sort BIG O
+
+[↑ Table of Content ](#table-of-content)
