@@ -92,7 +92,6 @@ const swap = (arr, idx1, idx2) => {
 
 Check the code *[here](Bubble_Sort.js)*
 
-#### Bubble Sort Optimization
 
 #### Bubble Sort BIG O
 

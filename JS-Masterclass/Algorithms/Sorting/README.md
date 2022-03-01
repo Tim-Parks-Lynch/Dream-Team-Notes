@@ -1,6 +1,6 @@
 # Sorting
 
-**You can check for detail note *[here](Detail_Notes.md)***
+**You can check for the detail notes *[here](Detail_Notes.md)***
 
 -   There ara **many** different algorithms to do this, so it's important to know what works best, and in what situation.
 -   [Tool](https://www.toptal.com/developers/sorting-algorithms) to check performance of various sorting techniques.
