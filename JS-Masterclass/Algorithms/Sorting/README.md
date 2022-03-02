@@ -209,13 +209,13 @@ Builds up the sort by gradually creating a larger left half which is always sort
   - If the value in the first array is larger than the value in the second array, push the value in the second array into our results and move on to the next value in the second array
   - Once we exhaust one array, push in all remaining values from the other array
 
-1. mergeSort Pseudocode
+**1. mergeSort Pseudocode**
 
 - Break up the array into halves until you have arrays that are empty or have one element
 - Once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
 - Once the array has been merged back together, return the merged (and sorted!) array
 
-2. [mergeSort code](Merge_Sort.js)
+**2. [mergeSort code](Merge_Sort.js)**
 
 #### Merge Sort BIG O
 
@@ -239,7 +239,7 @@ Builds up the sort by gradually creating a larger left half which is always sort
 
 #### Pivot Helper
 
-**1. Introduction**
+**<details><summary>1. Introduction </summary>**
 
 - In order to implement merge sort, it's useful to first implement a function responsible arranging elements in an array on either side of a pivot
 - Given an array, this helper function should designate an element as the pivot
@@ -247,13 +247,14 @@ Builds up the sort by gradually creating a larger left half which is always sort
 - The order of elements on either side of the pivot doesn't matter!
 - The helper should do this in place, that is, it should not create a new array
 - When complete, the helper should return the index of the pivot
+</details>
 
-**2. Implementation**
+**<details><summary>2. Implementation</summary>**
 
 - The runtime of quick sort depends in part on how one selects the pivot
 - Ideally, the pivot should be chosen so that it's roughly the median value in the data set you're sorting
 - For simplicity, we'll always choose the pivot to be the first element (we'll talk about consequences of this later)
-
+-
 ```js
 let arr = [ 5, 2, 1, 8, 4, 7, 6, 3 ]
 
@@ -267,8 +268,11 @@ arr;
 // [4, 1, 2, 3, 5, 6, 8, 7]
 // there are other acceptable mutations too!
 ```
+</details>
 
-**3. Pseudocode**
+
+
+**<details><summary>3. Pseudocode </summary>**
 
 - It will help to accept three arguments: an array, a start index, and an end index (these can default to 0 and the array length minus 1, respectively)
 - Grab the pivot from the start of the array
@@ -277,6 +281,7 @@ arr;
     - If the pivot is greater than the current element, increment the pivot index variable and then swap the current element with the element at the pivot index
 - Swap the starting element (i.e. the pivot) with the pivot index
 - Return the pivot index
+</details>
 
 #### Quick Sort Implementation
 
@@ -305,9 +310,9 @@ arr;
 
 #### Radix Sort Helper Methods
 
-- In order to implement radix sort, it's helpful to build a few helper functions first:
-  - getDigit(num, place) - returns the digit in num at the given place value
+In order to implement radix sort, it's helpful to build a few helper functions first:
 
+   - getDigit(num, place) - returns the digit in num at the given place value
 ```js
 function getDigit(num, i) {
   return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
@@ -343,6 +348,9 @@ function mostDigits(nums) {
   return maxDigits;
 }
 
+mostDigits([1234, 56, 7]); // 4
+mostDigits([1, 1, 11111, 1]); // 5
+mostDigits([12, 34, 56, 78]); // 2
 
 ```
 #### Radix Sort Pseudocode
@@ -364,7 +372,7 @@ Check out the code *[here](Radix_Sort.js)*!
 
 | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity |
 | :--------------------- | :------------------------ | :---------------------- | :--------------- |
-| O(nk)             | O(nk)                | O(nk)        | O(n + k)         |
+| O(nk)                  | O(nk)                     | O(nk)                   | O(n + k)         |
 
 - n - length of array
 - k - number of digits(average)
@@ -378,3 +386,5 @@ Check out the code *[here](Radix_Sort.js)*!
 - Merge sort takes up more memory because it creates a new array (in-place merge sorts exist, but they are really complex!)
 - Radix sort is a fast sorting algorithm for numbers
 - Radix sort exploits place value to sort numbers in linear time (for a fixed number of digits)
+
+[↑ Table of Content ](#table-of-content)
