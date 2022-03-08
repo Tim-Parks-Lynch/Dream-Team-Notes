@@ -25,3 +25,20 @@
 -   We define a class for a **Node** and use that to define a class for our SLL.
 
 </details>
+
+## Reverse Singly Linked List
+
+![SLL](img/sll-02.gif)
+
+## Big O of Singly Linked Lists
+
+- Insertion -   O(1)
+- Removal -   It depends.... O(1) or O(N)
+- Searching -   O(N)
+- Access -   O(N)
+
+## RECAP
+
+- Singly Linked Lists are an excellent alternative to arrays when insertion and deletion at the beginning are frequently required
+- Arrays contain a built in index whereas Linked Lists do not
+- The idea of a list data structure that consists of nodes is the foundation for other data structures like Stacks and Queues
