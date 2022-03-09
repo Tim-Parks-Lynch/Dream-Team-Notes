@@ -13,6 +13,8 @@ Different data structures excel at different things.  Some are highly specialize
 1. [Class](#class)
 2. [Singly Linked List](Singly_Linked_List)
 3. [Doubly Linked List](Doubly_Linked_List)
+4. [Stacks](Stacks)
+5. [Queue](Queue)
 
 ## Class
 
