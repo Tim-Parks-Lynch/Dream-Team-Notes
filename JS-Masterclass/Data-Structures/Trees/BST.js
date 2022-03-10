@@ -72,7 +72,7 @@ class BinarySearchTree {
       }
      } */
     while (currentNode) {
-      if (currentNode.va < val) {
+      if (currentNode.val < val) {
         currentNode = currentNode.right;
       } else if (currentNode.val > val) {
         currentNode = currentNode.left;
@@ -80,6 +80,6 @@ class BinarySearchTree {
         return true;
       }
     }
-    return false
+    return false;
   }
 }
