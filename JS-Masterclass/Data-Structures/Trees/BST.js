@@ -44,12 +44,12 @@ class BinarySearchTree {
 
   // Method to find if a value is present in the BST
 
-  // My approach, similar to Colt's approach
   find(val) {
     // Check is there is no 'root' node and return false
     if (!this.root) return false;
 
     let currentNode = this.root;
+    /* Colt's approach
     while (true) {
       // Check if the currentNode's value is equal to val, and return true
       if (currentNode.val === val) return true;
@@ -70,6 +70,16 @@ class BinarySearchTree {
         // Otherwise, continue searching after setting the new currentNode to be the 'right' property of the currentNode
         currentNode = currentNode.right;
       }
+     } */
+    while (currentNode) {
+      if (currentNode.va < val) {
+        currentNode = currentNode.right;
+      } else if (currentNode.val > val) {
+        currentNode = currentNode.left;
+      } else {
+        return true;
+      }
     }
+    return false
   }
 }
