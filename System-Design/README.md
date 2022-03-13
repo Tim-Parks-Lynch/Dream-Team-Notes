@@ -1,107 +1,77 @@
-# Grokking the System Design Interview
+# System Design — Buzzwords to revise before going for an Interview
 ## GLOSSARY OF SYSTEM DESIGN BASICS
 
-### 1. System Design Basics
-Whenever we are designing a large system, we need to consider a few things:
+## Main Content
 
-1. What are the different architectural pieces that can be used?
-2. How do these pieces work with each other?
-3. How can we best utilize these pieces: what are the right tradeoffs?
+### Client-Server Model
+A client and server networking model is a model in which computers such as servers provide the network services to the other computers such as clients to perform a user based tasks.
 
-Investing in scaling before it is needed is generally not a smart business proposition; however, some forethought into the design can save valuable time and resources in the future. In the following chapters, we will try to define some of the core building blocks of scalable systems. Familiarizing these concepts would greatly benefit in understanding distributed system concepts. In the next section, we will go through Consistent Hashing, CAP Theorem, Load Balancing, Caching, Data Partitioning, Indexes, Proxies, Queues, Replication, and choosing between SQL vs. NoSQL.
+#### Protocols in networking
+In networking, a protocol is a standardized set of rules for formatting and processing data. Protocols enable computers to communicate with one another.
 
+### TCP vs UDP vs HTTP
+HTTP requires a TCP connection, HTTP is an abstraction over TCP.
+Overhead of creating UDP connections is much less than TCP connections(because of the concept of handshake in TCP)
+UDP — Would be best for Data Steaming services as negligible time is required to form a connection.
+TCP- Can be used to form more reliable connections.
 
-### 2. Key Characteristics of Distributed Systems
-### 3. Load Balancing
-### 4. Caching
-### 5. Data Partitioning
-### 6. Indexes
-### 7. Proxies
-### 8. Redundancy and Replication
-### 9. SQL vs. NoSQL
-### 10. CAP Theorem
-### 11. Consistent Hashing
-### 12. Long-Polling vs WebSockets vs Server-Sent Events
+### HTTP vs gRPC protocols
+HTTP protocol uses ASCII characters to communicate between the services/resources, to reduce the latency of the protocol, we can use gRPC protocol instead which uses binary characters to transfer/communicate data.
 
-## [SYSTEM DESIGN PROBLEMS](System-Design-Problems/)
-### System Design Interviews: A step by step guide
+### Latency vs Throughput
+In any system, we want minimum latency and maximum throughput.
+But what is latency and throughput?
+Latency: Time taken between the time at which the response was sent and the time at which the request arrived at the system.
+Throughput- Number of requests processed by a system in a unit of time.
 
-A lot of software engineers struggle with system design interviews (SDIs) primarily because of three reasons:
+### Caching
+Caches are introduced in a system to faster the retrieval process and reduce the latency in getting the data from the resource.
+This latency, in general, is due to the costly disk reads which happen during a read from the database.
+Technologies that can be used to implement caching are Redis, Memcached. Amazon Elasticache can be used to implement Redis and Memcached in our system.
 
-  - The unstructured nature of SDIs, where the candidates are asked to work on an open-ended design problem that doesn’t have a standard answer.
-  - Candidates lack of experience in developing complex and large scale systems.
-  - Candidates did not spend enough time to prepare for SDIs.
+### Scaling
+There comes a time in our system when our system is no longer producing the latency and throughput rates which we expect from our system, due to the increase in the number of requests received by our system. Then we have to look to expand our system so that our system will be able to handle such incoming requests.
+We can expand our system in two ways- Horizontal Scaling and Vertical Scaling.
 
-Like coding interviews, candidates who haven’t put a deliberate effort to prepare for SDIs, mostly perform poorly specially at top companies like Google, Facebook, Amazon, Microsoft, etc. In these companies, candidates who do not perform above average have a limited chance to get an offer. On the other hand, a good performance always results in a better offer (higher position and salary), since it shows the candidate’s ability to handle a complex system.
+### Proxy and Reverse Proxy
+A proxy server is any machine that translates traffic between networks or protocols. It’s an intermediary server separating end-user clients from the destinations that they browse. The client believes that they are communicating with the servers but in fact, they are communicating with the proxy server itself. Proxy servers can be used as firewalls, web filters and can also be used to cache the common requests and their responses.
+A reverse proxy is a type of proxy server that retrieves resources on behalf of a client from one or more servers. These resources are then returned to the client, appearing as if they originated from the reverse proxy server itself. It is mainly used to balance the load.
 
-In this course, we’ll follow a step by step approach to solve multiple design problems. First, let’s go through these steps:
+### Load Balancers
+In practice, a situation can arise where some servers are being hit multiple times and the server being within its capacity will be slow to respond to these multiple requests at a time, which will decrease the overall latency in the system.
+So we introduce a data structure in between called a load balancer to evenly distribute requests between the servers.
+A load balancer is also called a reverse proxy.
 
-#### **Step 1: Requirements clarifications**
-It is always a good idea to ask questions about the exact scope of the problem we are solving. Design questions are mostly open-ended, and they don’t have ONE correct answer, that’s why clarifying ambiguities early in the interview becomes critical. Candidates who spend enough time to define the end goals of the system always have a better chance to be successful in the interview. Also, since we only have 35-40 minutes to design a (supposedly) large system, we should clarify what parts of the system we will be focusing on.
+#### Formal definition:
+A load balancer is a device that acts as a reverse proxy and distributes network or application traffic across a number of servers.
+Technologies like Nginx can be used to implement load balancers.
 
-Let’s expand this with an actual example of designing a Twitter-like service. Here are some questions for designing Twitter that should be answered before moving on to the next steps:
+### Sharding
+Separating/breaking larger databases into more easily accessible parts called shards.
 
-  - Will users of our service be able to post tweets and follow other people?
-  - Should we also design to create and display the user’s timeline?
-  - Will tweets contain photos and videos?
-  - Are we focusing on the backend only or are we developing the front-end too?
-  - Will users be able to search tweets?
-  - Do we need to display hot trending topics?
-  - Will there be any push notification for new (or important) tweets?
+![Sharding](sd-01.jpg)
+*Example of sharding*
 
-All such questions will determine how our end design will look like.
+#### Advantages of sharding
+Increased Storage Capacity to hold the data.
+Querying a smaller database is faster( as lesser search space )
+Helps a lot in scaling imagine scaling the database across independent servers, each with its own CPU, memory, and disk.
 
-#### **Step 2: Back-of-the-envelope estimation**
-It is always a good idea to estimate the scale of the system we’re going to design. This will also help later when we will be focusing on scaling, partitioning, load balancing and caching.
+### Disadvantages of sharding
 
-  - What scale is expected from the system (e.g., number of new tweets, number of tweet views, number of timeline generations per sec., etc.)?
-  - How much storage will we need? We will have different storage requirements if users can have photos and videos in their tweets.
-  - What network bandwidth usage are we expecting? This will be crucial in deciding how we will manage traffic and balance load between servers.
+1. Resharding the data ->If a single shard is no longer able to hold more data due to rapid growth of the database itself, then due to uneven data distribution, some smaller shards might reach exhaustion and the data would need to be rehashed to different databases which could mean,
 
-#### **Step 3: System interface definition**
-Define what APIs are expected from the system. This will not only establish the exact contract expected from the system but will also ensure if we haven’t gotten any requirements wrong. Some examples of APIs for our Twitter-like service will be:
+a) Introduction of new shards into the system.
+b) Finding out a new hashing function to avoid uneven distribution of data among shards.
 
-``` postTweet(user_id, tweet_data, tweet_location, user_location, timestamp, …) ```
-``` generateTimeline(user_id, current_time, user_location, …) ```
-``` markTweetFavorite(user_id, tweet_id, timestamp, …) ```
+2. Celebrity problem:
+Also called hotspot key problem, Excessive access to a specific shard could cause a server overload. ( imagine shah rukh khan or justin beiber’s records are in a certain shard, then that specific database is queried again and again leading to slowing down the whole of the system). So we might need to allocate a new shard for each celebrity!
 
-#### **Step 4: Defining data model**
-Defining the data model in the early part of the interview will clarify how data will flow between different components of the system. Later, it will guide for data partitioning and management. The candidate should be able to identify various entities of the system, how they will interact with each other, and different aspects of data management like storage, transportation, encryption, etc. Here are some entities for our Twitter-like service:
+3. Join and Denormalization
+Once a DB is sharded among smaller databased, it is harder in a relational database ( be aware of the word relational database I have used here) to perform join operations( Natural join, Outer join, etc) across the DB shards., so we perform an operation called denormalization so that queries can be performed in the given table only rather than on many smaller tables ( smaller tables are formed due to normalization ).
 
-**User**: UserID, Name, Email, DoB, CreationData, LastLogin, etc.
-**Tweet**: TweetID, Content, TweetLocation, NumberOfLikes, TimeStamp, etc.
-**UserFollowo**: UserdID1, UserID2
-**FavoriteTweets**: UserID, TweetID, TimeStamp
+### Few Conclusive points on databases
 
-Which database system should we use? Will NoSQL like Cassandra best fit our needs, or should we use a MySQL-like solution? What kind of block storage should we use to store photos and videos?
-
-#### **Step 5: High-level design**
-Draw a block diagram with 5-6 boxes representing the core components of our system. We should identify enough components that are needed to solve the actual problem from end-to-end.
-
-For Twitter, at a high-level, we will need multiple application servers to serve all the read/write requests with load balancers in front of them for traffic distributions. If we’re assuming that we will have a lot more read traffic (as compared to write), we can decide to have separate servers for handling these scenarios. On the backend, we need an efficient database that can store all the tweets and can support a huge number of reads. We will also need a distributed file storage system for storing photos and videos.
-
-![widget](step-5-high-level-design.png)
-
-#### **Step 6: Detailed design**
-Dig deeper into two or three major components; interviewer’s feedback should always guide us to what parts of the system need further discussion. We should be able to present different approaches, their pros and cons, and explain why we will prefer one approach on the other. Remember there is no single answer; the only important thing is to consider tradeoffs between different options while keeping system constraints in mind.
-
-  - Since we will be storing a massive amount of data, how should we partition our data to distribute it to multiple databases? Should we try to store all the data of a user on the same database? What issue could it cause?
-  - How will we handle hot users who tweet a lot or follow lots of people?
-  - Since users’ timeline will contain the most recent (and relevant) tweets, should we try to store our data in such a way that is optimized for scanning the latest tweets?
-  - How much and at which layer should we introduce cache to speed things up?
-  - What components need better load balancing?
-  -
-#### **Step 7: Identifying and resolving bottlenecks**
-Try to discuss as many bottlenecks as possible and different approaches to mitigate them.
-
-  - Is there any single point of failure in our system? What are we doing to mitigate it?
-  - Do we have enough replicas of the data so that if we lose a few servers, we can still serve our users?
-  - Similarly, do we have enough copies of different services running such that a few failures will not cause total system shutdown?
-  - How are we monitoring the performance of our service? Do we get alerts whenever critical components fail or their performance degrades?
-
-#### Summary
-In short, preparation and being organized during the interview are the keys to be successful in system design interviews. The steps mentioned above should guide you to remain on track and cover all the different aspects while designing a system.
-
-Let’s apply the above guidelines to design a few systems that are asked in SDIs.
-
-#### Additional Resources
+1. Memory is faster to access and disk reads are slow ( so try to avoid reading from the disks as much as we can )
+2. Sharding should be done on an optimal column or a row based on the use case, and if sharding is done on some random column or row it would lead to abnormal “joins” across the shards, leading to abnormal delay in the system.
+3. Consistent hashing is a technique to avoid one of the disadvantages of sharding ( that is in this article, written as resharding the data). Would discuss consistent hashing in the upcoming articles soon.
