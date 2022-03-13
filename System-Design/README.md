@@ -1,6 +1,4 @@
 # System Design — Buzzwords to revise before going for an Interview
-## GLOSSARY OF SYSTEM DESIGN BASICS
-
 ## Main Content
 
 ### Client-Server Model
@@ -57,7 +55,7 @@ Increased Storage Capacity to hold the data.
 Querying a smaller database is faster( as lesser search space )
 Helps a lot in scaling imagine scaling the database across independent servers, each with its own CPU, memory, and disk.
 
-### Disadvantages of sharding
+#### Disadvantages of sharding
 
 1. Resharding the data ->If a single shard is no longer able to hold more data due to rapid growth of the database itself, then due to uneven data distribution, some smaller shards might reach exhaustion and the data would need to be rehashed to different databases which could mean,
 
