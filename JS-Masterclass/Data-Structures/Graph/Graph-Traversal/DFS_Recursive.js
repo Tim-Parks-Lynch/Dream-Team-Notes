@@ -33,7 +33,7 @@ class Graph {
   }
 
 
-  DFS(startingVertex) { // Accept a starting node
+  DFS_Recursive(startingVertex) { // Accept a starting node
     // the meaning of this.adjacencyList will change on line 47
     const graph = this.adjacencyList;
     // Create a list to store the end result, to be returned at the very end
@@ -61,7 +61,7 @@ class Graph {
   }
 
   // Colt's solution
- /* DFS(start) {
+ /* DFS_Recursive(start) {
     const result = [];
     const visited = {};
 
@@ -105,7 +105,7 @@ g.addEdge("c", "a")
 g.addEdge("e", "f")
 
 
-console.log(g.DFS("a"))
+console.log(g.DFS_Recursive("a"))
 console.log(g.adjacencyList);
 
 /**

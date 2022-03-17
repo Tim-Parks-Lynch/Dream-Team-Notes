@@ -32,7 +32,7 @@ class Graph {
     delete this.adjacencyList[key];
   }
 
-  DFS(start) { // accept a starting node
+  DFS_Iterative(start) { // accept a starting node
     // Create a stack to help use keep track of vertices (use a list/array)
     const stack = [];
     // Create a list to store the end result, to be returned at the very end
@@ -80,7 +80,7 @@ g.addEdge("c", "a")
 g.addEdge("e", "f")
 
 
-console.log(g.DFS("a"))
+console.log(g.DFS_Iterative("a"))
 console.log(g.adjacencyList);
 
 /**
