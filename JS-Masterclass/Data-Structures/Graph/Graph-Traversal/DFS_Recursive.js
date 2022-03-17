@@ -34,6 +34,7 @@ class Graph {
 
 
   DFS(startingVertex) { // Accept a starting node
+    // the meaning of this.adjacencyList will change on line 47
     const graph = this.adjacencyList;
     // Create a list to store the end result, to be returned at the very end
     const result = [];
@@ -60,7 +61,7 @@ class Graph {
   }
 
   // Colt's solution
-  DFS(start) {
+ /* DFS(start) {
     const result = [];
     const visited = {};
 
@@ -83,7 +84,7 @@ class Graph {
     })(start);
 
     return result;
-  }
+  }*/
 
 }
 
