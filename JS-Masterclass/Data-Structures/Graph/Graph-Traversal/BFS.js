@@ -55,7 +55,72 @@ class Graph {
   // -----------------------
   // BFS Starts Here Onwards
   // ------------
-  BFS(start) {
+  BFS(start) { // accept a starting vertex
+    // Create a queue (you can use an array) and place the starting vertex in it
+    const queue = []
+    // Create an array to store the result and return it later
+    const result = []
+    // Create an object to store nodes visited
+    const visitedNodes = {}
+    // Mark the starting vertex as visited
+    queue.push(start)
+    visitedNodes[start] = true
 
+    // Loop as long as there is anything in the queue
+    while (queue.length) {
+      const firstElement = queue.shift()
+      // Remove the first vertex from the queue and push it into the array that stores nodes visited
+      result.push(firstElement)
+      // Loop over each vertex in the adjacency list for the vertex you are visiting.
+      this.adjacencyList[firstElement].forEach((neighbor) => {
+        // If it is not inside the object that stores nodes visited, mark it as visited
+        if (!visitedNodes[neighbor]) {
+          visitedNodes[neighbor] = true
+          // enqueue that vertex
+          queue.push(neighbor)
+        }
+      })
+
+    }
+    return result;
   }
 }
+
+
+const g = new Graph()
+g.addVertex("a")
+g.addVertex("b")
+g.addVertex("c")
+g.addVertex("d")
+g.addVertex("e")
+g.addVertex("f")
+
+g.addEdge("a", "b")
+g.addEdge("b", "d")
+g.addEdge("d", "f")
+g.addEdge("d", "e")
+g.addEdge("e", "c")
+g.addEdge("c", "a")
+g.addEdge("e", "f")
+
+
+console.log(g.BFS("a")) // [ 'a', 'b', 'c', 'd', 'e', 'f' ]
+console.log(g.adjacencyList);
+
+/** g.adjacency
+{
+  a: [ 'b', 'c' ],
+  b: [ 'a', 'd' ],
+  c: [ 'e', 'a' ],
+  d: [ 'b', 'f', 'e' ],
+  e: [ 'd', 'c', 'f' ],
+  f: [ 'd', 'e' ]
+}
+ */
+/**
+ *    a
+    /   \
+   b     d
+    \   /
+      c
+ */
