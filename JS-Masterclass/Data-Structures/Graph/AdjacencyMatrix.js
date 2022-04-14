@@ -70,3 +70,5 @@ class Graph {
     }
   }
 }
+
+/**Source: https://reginafurness.medium.com/representing-a-weighted-graph-with-an-adjacency-matrix-in-javascript-8a803bfbc36f */
