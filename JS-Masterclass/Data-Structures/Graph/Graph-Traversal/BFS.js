@@ -119,8 +119,10 @@ console.log(g.adjacencyList);
  */
 /**
  *    a
-    /   \
-   b     d
-    \   /
-      c
+    /  \
+   b    c
+   |    |
+   d----e
+    \  /
+     f
  */
